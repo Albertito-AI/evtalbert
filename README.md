@@ -1,5 +1,7 @@
 # EVT-Albert
 
+[Albert Tan Sin Hon's website](https://www.alberttansinhon.com/)
+
 **Emotional–Volitional Training logger & analytics (Puni-inspired)**  
 Proprietary © 2025 **Tan Sin Hon Albert** · Source-available (non-commercial)
 

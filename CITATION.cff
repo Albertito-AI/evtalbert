@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite this software using these metadata."
+title: "EVT-Albert"
+type: software
+authors:
+  - family-names: "Tan"
+    given-names: "Albert Sin Hon"
+version: "0.1.0"
+date-released: "2025"
+repository-code: "https://github.com/Albertito-AI/evtalbert"
+url: "https://www.alberttansinhon.com/"
+license: MIT

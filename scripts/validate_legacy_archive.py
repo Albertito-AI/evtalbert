@@ -3,6 +3,7 @@ from __future__ import annotations
 import compileall
 import hashlib
 import json
+import os
 from pathlib import Path, PurePosixPath
 import stat
 import subprocess
@@ -13,6 +14,9 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 ARCHIVE = ROOT / "evtalbert_v0_1_0.zip"
+EXPECTED_ARCHIVE_SHA256 = (
+    "d8560c3592aa1df9779f2168b0a31e510982c681e10e86043468473c41bdf09f"
+)
 
 REQUIRED_PATHS = {
     "README.md",
@@ -54,7 +58,7 @@ def validate_repository_documents(errors: list[str]) -> None:
         required_statements = (
             "MIT License",
             "legacy source snapshot",
-            "no current GitHub Actions run is claimed",
+            "archive-level continuous integration",
             "Actual user records should not",
         )
         for statement in required_statements:
@@ -73,18 +77,26 @@ def validate_archive(errors: list[str]) -> dict[str, object]:
     summary: dict[str, object] = {
         "archive": ARCHIVE.name,
         "sha256": None,
+        "expected_sha256": EXPECTED_ARCHIVE_SHA256,
         "members": [],
         "python_files": 0,
         "test_files": 0,
         "generated_bytecode_members": [],
         "uncompressed_bytes": 0,
+        "test_runner": "pytest",
         "tests_executed": False,
     }
 
     if not ARCHIVE.exists():
         return summary
 
-    summary["sha256"] = _sha256(ARCHIVE)
+    observed_sha256 = _sha256(ARCHIVE)
+    summary["sha256"] = observed_sha256
+    if observed_sha256 != EXPECTED_ARCHIVE_SHA256:
+        errors.append(
+            "legacy archive digest changed without an explicit baseline update: "
+            f"expected {EXPECTED_ARCHIVE_SHA256}, observed {observed_sha256}"
+        )
 
     try:
         archive = zipfile.ZipFile(ARCHIVE)
@@ -142,6 +154,8 @@ def validate_archive(errors: list[str]) -> dict[str, object]:
         ]
         if not python_members:
             errors.append("legacy archive contains no Python source files")
+        if not test_members:
+            errors.append("legacy archive contains no discoverable Python test files")
 
         summary.update(
             {
@@ -161,19 +175,25 @@ def validate_archive(errors: list[str]) -> dict[str, object]:
                 errors.append("one or more Python sources failed byte-compilation")
 
             if test_members:
+                environment = os.environ.copy()
+                existing_pythonpath = environment.get("PYTHONPATH")
+                source_path = str(extract_root / "src")
+                environment["PYTHONPATH"] = (
+                    source_path
+                    if not existing_pythonpath
+                    else source_path + os.pathsep + existing_pythonpath
+                )
+
                 completed = subprocess.run(
                     [
                         sys.executable,
                         "-m",
-                        "unittest",
-                        "discover",
-                        "-s",
-                        str(extract_root),
-                        "-p",
-                        "test*.py",
-                        "-v",
+                        "pytest",
+                        "-q",
+                        str(extract_root / "tests"),
                     ],
                     cwd=extract_root,
+                    env=environment,
                     text=True,
                     capture_output=True,
                     check=False,
@@ -185,7 +205,7 @@ def validate_archive(errors: list[str]) -> dict[str, object]:
                     print(completed.stderr, file=sys.stderr)
                 if completed.returncode != 0:
                     errors.append(
-                        "bundled unit-test discovery returned "
+                        "bundled pytest suite returned "
                         f"exit status {completed.returncode}"
                     )
 

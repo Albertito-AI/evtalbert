@@ -1,0 +1,36 @@
+{
+  "archive_sha256": "d8560c3592aa1df9779f2168b0a31e510982c681e10e86043468473c41bdf09f",
+  "csv_rows": 3,
+  "fixture": "three invented records; no personal or health data",
+  "legacy_markdown_has_literal_backslash_n": true,
+  "metrics": {
+    "avg_sec_to_target": 30.0,
+    "latest_vi": 4.0,
+    "outcome_counts": {
+      "partial": 1,
+      "success": 2
+    },
+    "readiness_ratio": 0.6666666666666666,
+    "top_obstacles": [
+      [
+        "time-pressure",
+        2
+      ],
+      [
+        "equipment",
+        1
+      ]
+    ],
+    "total_sessions": 3,
+    "vi_series": [
+      3.0,
+      3.5,
+      4.0
+    ]
+  },
+  "session_rating_means": [
+    3,
+    4,
+    5
+  ]
+}

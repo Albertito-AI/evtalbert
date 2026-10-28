@@ -1,0 +1,4 @@
+ts,athlete,sport,task,pre_state,regulation,sec_to_target,obstacle,outcome,rpe,volition,notes
+2025-01-01T10:00:00Z,synthetic-demo,fictional-task,example-1,alertness,invented-demo-label,20,time-pressure,success,,"{'purposefulness': 3, 'persistence': 3, 'self_control': 3, 'decisiveness': 3}",Entirely invented documentation fixture; no person or study participant.
+2025-01-02T10:00:00Z,synthetic-demo,fictional-task,example-2,fever,invented-demo-label,40,equipment,partial,,"{'purposefulness': 4, 'persistence': 4, 'self_control': 4, 'decisiveness': 4}",Entirely invented documentation fixture; no person or study participant.
+2025-01-03T10:00:00Z,synthetic-demo,fictional-task,example-3,alertness,invented-demo-label,,time-pressure,success,,"{'purposefulness': 5, 'persistence': 5, 'self_control': 5, 'decisiveness': 5}",Entirely invented documentation fixture; no person or study participant.

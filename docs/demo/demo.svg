@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+<title id="title">EVT-Albert: observed synthetic session-to-summary demo</title>
+<desc id="desc">Three invented sessions produce three records, 66.7 percent ALERT-coded starts, 30 seconds mean recorded time, rolling proposed VI 4.00, two success and one partial labels, and three exported CSV rows. These are computations on a fixture, not scientific validation.</desc>
+<rect width="1200" height="460" rx="14" fill="#f4f7fb"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="42" y="50" font-size="16" letter-spacing="2" fill="#46627d">RUNNABLE DEMO · SYNTHETIC INPUT ONLY</text>
+<text x="40" y="91" font-size="30" font-weight="bold" fill="#0f172a">Three sessions → one computed summary</text>
+<rect x="40" y="113" width="510" height="260" rx="12" fill="#ffffff" stroke="#d6e0eb"/>
+<text x="63" y="147" font-size="20" font-weight="bold" fill="#1f3d58">Input supplied to the archived API</text>
+<text x="63" y="193" font-size="20" fill="#334155">A: alertness · 20 s · success · ratings all 3</text>
+<text x="63" y="239" font-size="20" fill="#334155">B: fever code · 40 s · partial · ratings all 4</text>
+<text x="63" y="285" font-size="20" fill="#334155">C: alertness · no time · success · ratings all 5</text>
+<text x="63" y="337" font-size="17" fill="#64748b">Labels and ratings are invented, not observations.</text>
+<path d="M575 243 H620 M610 233 L621 243 L610 253" fill="none" stroke="#517b9e" stroke-width="3"/>
+<text x="660" y="143" font-size="19" fill="#475569">Records</text><text x="1125" y="143" font-size="24" text-anchor="end" fill="#0f172a">3</text><text x="660" y="186" font-size="19" fill="#475569">ALERT-coded starts</text><text x="1125" y="186" font-size="24" text-anchor="end" fill="#0f172a">66.7%</text><text x="660" y="229" font-size="19" fill="#475569">Mean recorded time</text><text x="1125" y="229" font-size="24" text-anchor="end" fill="#0f172a">30 s</text><text x="660" y="272" font-size="19" fill="#475569">Proposed rolling VI</text><text x="1125" y="272" font-size="24" text-anchor="end" fill="#0f172a">4.00</text><text x="660" y="315" font-size="19" fill="#475569">Outcomes</text><text x="1125" y="315" font-size="24" text-anchor="end" fill="#0f172a">2 success / 1 partial</text><text x="660" y="358" font-size="19" fill="#475569">CSV rows exported</text><text x="1125" y="358" font-size="24" text-anchor="end" fill="#0f172a">3</text>
+<text x="42" y="412" font-size="18" fill="#334155">The proposed VI averages supplied ratings, then takes a trailing mean over up to 7 sessions.</text>
+<text x="42" y="440" font-size="17" fill="#64748b">Exploratory software output; no psychological, clinical or theoretical validity is established.</text>
+</g></svg>

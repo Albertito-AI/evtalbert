@@ -4,6 +4,26 @@
 
 [Albert Tan Sin Hon](https://www.alberttansinhon.com/) developed EVT-Albert as a software research prototype inspired by approaches to emotional-volitional preparation. It is intended to help a user record training or performance sessions, describe obstacles and regulation methods, and inspect simple derived indicators.
 
+## See it in action
+
+Three **invented sessions** go through the unchanged archived API to produce
+computed metrics and a three-row CSV export. Here is the observed result:
+
+![Observed synthetic EVT-Albert demo: 3 sessions, 66.7 percent ALERT-coded starts, 30 seconds mean recorded time, proposed rolling VI 4.00 and 3 CSV rows.](docs/demo/demo.svg)
+
+Run from the repository root with Python 3.10 or later; the demo uses only the
+standard library and a temporary workspace:
+
+```bash
+python scripts/readme_demo.py
+```
+
+It prints the actual [metrics JSON](docs/demo/output.json). The
+[fixture, CSV and reproduction notes](docs/demo/README.md) explain the supplied
+ratings and the legacy Markdown writer's literal `\n` separators. These results
+demonstrate software arithmetic on fictional records. They do not validate the
+proposed Volitional Index or a psychological theory.
+
 ## Release status
 
 The original software in this repository is distributed under the [MIT License](LICENSE). The earlier description of the project as proprietary and non-commercial was inconsistent with that licence and has been withdrawn. MIT permits commercial and non-commercial use subject to its terms.

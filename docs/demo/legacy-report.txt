@@ -1,0 +1,1 @@
+# EVT‑Albert Analytics\n\n- **Total sessions:** 3\n- **Readiness ratio (ALERT starts):** 66.7%\n- **Average sec to target:** 30.00\n- **Outcome mix:** success=2, partial=1, failure=0\n- **Latest VI (7-session mean):** 4.00\n\n## Top Obstacles\n- time-pressure: 2\n- equipment: 1\n

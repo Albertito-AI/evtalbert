@@ -21,3 +21,5 @@ dist/
 logs/
 data/
 exports/
+/config.json
+!docs/demo/synthetic.csv

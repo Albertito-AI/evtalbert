@@ -1,0 +1,140 @@
+{
+  "archive": "evtalbert_v0_1_0.zip",
+  "archive_sha256": "d8560c3592aa1df9779f2168b0a31e510982c681e10e86043468473c41bdf09f",
+  "source_commit": "0bcac11bc464552b984dd0aa6ea30a04f2027c91",
+  "scope": "Recorded original archive member bytes before extraction; modified files are explained in docs/SOURCE_MIGRATION.md",
+  "members": [
+    {
+      "archive_path": "pyproject.toml",
+      "sha256": "44a96d91cbd7032dff9bf062056573bc8decc3118e5717979382d1aa45893dd1",
+      "bytes": 853,
+      "disposition": "extracted"
+    },
+    {
+      "archive_path": "LICENSE",
+      "sha256": "15365184641a57559773c808f41c17429eca599b13937ffc82be8d1c5b36759a",
+      "bytes": 1652,
+      "disposition": "superseded-by-current-root-documents-or-workflows"
+    },
+    {
+      "archive_path": "README.md",
+      "sha256": "65d5e89bf20d5b3682f2ab68e310826a888395f889b1ec371a6bfb6227f9d038",
+      "bytes": 3349,
+      "disposition": "superseded-by-current-root-documents-or-workflows"
+    },
+    {
+      "archive_path": ".gitignore",
+      "sha256": "9ddc08fc0b2e4d05f8052e71ed3c7ade2077b0049234b6209857b51dba818173",
+      "bytes": 169,
+      "disposition": "superseded-by-current-root-documents-or-workflows"
+    },
+    {
+      "archive_path": "CITATION.cff",
+      "sha256": "a98e2cc76840478f665b735c9f04e17dd5395785ee81854d66bd531abf9aef40",
+      "bytes": 402,
+      "disposition": "superseded-by-current-root-documents-or-workflows"
+    },
+    {
+      "archive_path": "CODE_OF_CONDUCT.md",
+      "sha256": "2d034592cbc8fa2692edb102d908178df939b3809d087ecc337c5f24a5536f8f",
+      "bytes": 104,
+      "disposition": "extracted"
+    },
+    {
+      "archive_path": "CONTRIBUTING.md",
+      "sha256": "0f72769e62629fd2ae62b7aa0e2b2ebf1fa4fe22aa298a14e78508f0e51c9625",
+      "bytes": 150,
+      "disposition": "extracted"
+    },
+    {
+      "archive_path": "SECURITY.md",
+      "sha256": "f4524db21abca8ee89d792b5dd92bd5ba411483e7d029bf0cd77f706503da0ef",
+      "bytes": 99,
+      "disposition": "superseded-by-current-root-documents-or-workflows"
+    },
+    {
+      "archive_path": "docs/ethics.md",
+      "sha256": "09f448fe0c0e4ad35bcc68ce04fbb9f76d8c8dcf91d9ca2889e9dac97072a6c6",
+      "bytes": 459,
+      "disposition": "extracted"
+    },
+    {
+      "archive_path": ".github/workflows/ci.yml",
+      "sha256": "d951681e55da578f3b6c6db1284da0a04b3b55b5ded62dfe1f4abd10f33ffa8d",
+      "bytes": 389,
+      "disposition": "superseded-by-current-root-documents-or-workflows"
+    },
+    {
+      "archive_path": ".github/workflows/report.yml",
+      "sha256": "c885b48ab447d8eee4d7d8afb4c85f16b9721963548c897f50435ae80c84bc7b",
+      "bytes": 913,
+      "disposition": "superseded-by-current-root-documents-or-workflows"
+    },
+    {
+      "archive_path": "src/evtalbert/__init__.py",
+      "sha256": "a757a6ea3e0c7793a7691bdf349fd3b8a7e5011d49ba01f139f01360c91cbfe4",
+      "bytes": 47,
+      "disposition": "extracted"
+    },
+    {
+      "archive_path": "src/evtalbert/models.py",
+      "sha256": "e069bf580194caa9622bd7db884ac8b133c2af952418fe6a99b8e1ba7ea1e6d0",
+      "bytes": 1038,
+      "disposition": "extracted"
+    },
+    {
+      "archive_path": "src/evtalbert/storage.py",
+      "sha256": "f7fca0de3834701e43149659ef1190ff87ae2501316b7bec676e0d31c577eb5d",
+      "bytes": 2917,
+      "disposition": "extracted"
+    },
+    {
+      "archive_path": "src/evtalbert/analytics.py",
+      "sha256": "bee11f7454e49de171111063d7ee996f74e181fa687903ec87283a5bdb7b1c6f",
+      "bytes": 3426,
+      "disposition": "extracted"
+    },
+    {
+      "archive_path": "src/evtalbert/cli.py",
+      "sha256": "994b689af7a687bfdd9002acf8509825ff3e1adc5ae019db180c30e9f8c04395",
+      "bytes": 6123,
+      "disposition": "extracted"
+    },
+    {
+      "archive_path": "src/evtalbert/__pycache__/__init__.cpython-311.pyc",
+      "sha256": "8a846a9c59f145638f191ab44e1ed45b6527b28a666674e339d54df7d3e9e94d",
+      "bytes": 201,
+      "disposition": "excluded-generated-bytecode"
+    },
+    {
+      "archive_path": "src/evtalbert/__pycache__/cli.cpython-311.pyc",
+      "sha256": "0a5ad6924deadd5aafcaf07811949116a1a2758db3ec21cbd81a04b491ffc9ba",
+      "bytes": 11745,
+      "disposition": "excluded-generated-bytecode"
+    },
+    {
+      "archive_path": "src/evtalbert/__pycache__/models.cpython-311.pyc",
+      "sha256": "3fc758456062372003bbb753a98f8260fb4e4b832eaf3ad0b568af1ec7751455",
+      "bytes": 2498,
+      "disposition": "excluded-generated-bytecode"
+    },
+    {
+      "archive_path": "src/evtalbert/__pycache__/storage.cpython-311.pyc",
+      "sha256": "f2f320ce2db98b5276321c0634af065642f5f6bca7c882145b2830aac410470f",
+      "bytes": 6416,
+      "disposition": "excluded-generated-bytecode"
+    },
+    {
+      "archive_path": "src/evtalbert/__pycache__/analytics.cpython-311.pyc",
+      "sha256": "7562152d32d60a818aeedbf441517c3d6921ecc97d7c87a00f9b23fddcb892e9",
+      "bytes": 6989,
+      "disposition": "excluded-generated-bytecode"
+    },
+    {
+      "archive_path": "tests/test_smoke.py",
+      "sha256": "58c69b083aad3946819c77c889a7a401f2a556e0ca8d8c00e7a51520f5f2dc50",
+      "bytes": 1096,
+      "disposition": "extracted"
+    }
+  ]
+}

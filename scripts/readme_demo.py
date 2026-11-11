@@ -1,4 +1,4 @@
-"""Run the unchanged legacy API against three invented records in a temporary directory."""
+"""Run the inspectable source API on three invented records in a temporary directory."""
 from __future__ import annotations
 
 import argparse
@@ -9,27 +9,20 @@ import json
 from pathlib import Path
 import sys
 import tempfile
-import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-ARCHIVE_SHA256 = "d8560c3592aa1df9779f2168b0a31e510982c681e10e86043468473c41bdf09f"
 SCORES = (3, 4, 5)
 
 
 def run_demo() -> tuple[dict, str, str]:
-    archive = ROOT / "evtalbert_v0_1_0.zip"
-    digest = hashlib.sha256(archive.read_bytes()).hexdigest()
-    if digest != ARCHIVE_SHA256:
-        raise ValueError("The legacy archive changed; review the new source before updating this demo.")
+    source = ROOT / "src"
+    source_hashes = {
+        str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in sorted((source / "evtalbert").glob("*.py"))
+    }
+    sys.path.insert(0, str(source))
     with tempfile.TemporaryDirectory(prefix="evtalbert-readme-") as directory:
         temporary = Path(directory)
-        package = temporary / "src" / "evtalbert"
-        package.mkdir(parents=True)
-        # Copy only reviewed Python source files. No legacy bytecode or data is loaded.
-        with zipfile.ZipFile(archive) as bundle:
-            for name in ("__init__.py", "models.py", "storage.py", "analytics.py"):
-                (package / name).write_bytes(bundle.read("src/evtalbert/" + name))
-        sys.path.insert(0, str(temporary / "src"))
         from evtalbert.analytics import compute_metrics, write_markdown
         from evtalbert.models import Outcome, PreStartState, SessionEntry
         from evtalbert.storage import append_jsonl, export_csv, get_paths
@@ -54,18 +47,18 @@ def run_demo() -> tuple[dict, str, str]:
             entries.append(entry)
             append_jsonl(get_paths(workspace)["logs_file"], entry)
         metrics = compute_metrics(workspace)
-        raw_report = write_markdown(workspace, metrics).read_text(encoding="utf-8")
+        raw_report = write_markdown(workspace, metrics).read_bytes().decode("utf-8")
         exported_rows = export_csv(workspace, temporary / "synthetic.csv")
-        csv_text = (temporary / "synthetic.csv").read_text(encoding="utf-8")
+        csv_text = (temporary / "synthetic.csv").read_bytes().decode("utf-8")
         if len(list(csv.DictReader(io.StringIO(csv_text)))) != exported_rows:
             raise RuntimeError("CSV row count does not match the actual export.")
         result = {
             "fixture": "three invented records; no personal or health data",
-            "archive_sha256": digest,
+            "source_sha256": source_hashes,
             "session_rating_means": list(SCORES),
             "metrics": metrics,
             "csv_rows": exported_rows,
-            "legacy_markdown_has_literal_backslash_n": "\\n" in raw_report,
+            "markdown_has_real_line_breaks": len(raw_report.splitlines()) > 1 and "\\n" not in raw_report,
         }
         return result, csv_text, raw_report
 
@@ -89,7 +82,7 @@ def diagram(result: dict) -> str:
 <text x="42" y="50" font-size="16" letter-spacing="2" fill="#46627d">RUNNABLE DEMO · SYNTHETIC INPUT ONLY</text>
 <text x="40" y="91" font-size="30" font-weight="bold" fill="#0f172a">Three sessions → one computed summary</text>
 <rect x="40" y="113" width="510" height="260" rx="12" fill="#ffffff" stroke="#d6e0eb"/>
-<text x="63" y="147" font-size="20" font-weight="bold" fill="#1f3d58">Input supplied to the archived API</text>
+<text x="63" y="147" font-size="20" font-weight="bold" fill="#1f3d58">Input supplied to the source API</text>
 <text x="63" y="193" font-size="20" fill="#334155">A: alertness · 20 s · success · ratings all 3</text>
 <text x="63" y="239" font-size="20" fill="#334155">B: fever code · 40 s · partial · ratings all 4</text>
 <text x="63" y="285" font-size="20" fill="#334155">C: alertness · no time · success · ratings all 5</text>
@@ -103,18 +96,30 @@ def diagram(result: dict) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--write-assets", action="store_true", help="Regenerate the tracked synthetic documentation outputs.")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--write-assets", action="store_true", help="Regenerate the tracked synthetic documentation outputs.")
+    mode.add_argument("--check", action="store_true", help="Compare actual outputs with the tracked synthetic examples.")
     args = parser.parse_args()
     result, csv_text, raw_report = run_demo()
     text = json.dumps(result, indent=2, sort_keys=True) + "\n"
+    artifacts = {
+        "output.json": text,
+        "synthetic.csv": csv_text,
+        "report.md": raw_report,
+        "demo.svg": diagram(result),
+    }
+    out = ROOT / "docs" / "demo"
     if args.write_assets:
-        out = ROOT / "docs" / "demo"
         out.mkdir(parents=True, exist_ok=True)
-        (out / "output.json").write_text(text, encoding="utf-8")
-        (out / "synthetic.csv").write_text(csv_text, encoding="utf-8")
-        (out / "legacy-report.txt").write_text(raw_report, encoding="utf-8")
-        (out / "demo.svg").write_text(diagram(result), encoding="utf-8")
-    print(text, end="")
+        for name, content in artifacts.items():
+            (out / name).write_bytes(content.encode("utf-8"))
+    if args.check:
+        for name, content in artifacts.items():
+            if (out / name).read_bytes() != content.encode("utf-8"):
+                raise ValueError(f"Synthetic documentation differs from current output: {name}")
+        print("Synthetic metrics, CSV, Markdown and SVG match current source output.")
+    else:
+        print(text, end="")
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@
 <text x="42" y="50" font-size="16" letter-spacing="2" fill="#46627d">RUNNABLE DEMO · SYNTHETIC INPUT ONLY</text>
 <text x="40" y="91" font-size="30" font-weight="bold" fill="#0f172a">Three sessions → one computed summary</text>
 <rect x="40" y="113" width="510" height="260" rx="12" fill="#ffffff" stroke="#d6e0eb"/>
-<text x="63" y="147" font-size="20" font-weight="bold" fill="#1f3d58">Input supplied to the archived API</text>
+<text x="63" y="147" font-size="20" font-weight="bold" fill="#1f3d58">Input supplied to the source API</text>
 <text x="63" y="193" font-size="20" fill="#334155">A: alertness · 20 s · success · ratings all 3</text>
 <text x="63" y="239" font-size="20" fill="#334155">B: fever code · 40 s · partial · ratings all 4</text>
 <text x="63" y="285" font-size="20" fill="#334155">C: alertness · no time · success · ratings all 5</text>

@@ -1,8 +1,7 @@
 {
-  "archive_sha256": "d8560c3592aa1df9779f2168b0a31e510982c681e10e86043468473c41bdf09f",
   "csv_rows": 3,
   "fixture": "three invented records; no personal or health data",
-  "legacy_markdown_has_literal_backslash_n": true,
+  "markdown_has_real_line_breaks": true,
   "metrics": {
     "avg_sec_to_target": 30.0,
     "latest_vi": 4.0,
@@ -32,5 +31,12 @@
     3,
     4,
     5
-  ]
+  ],
+  "source_sha256": {
+    "src/evtalbert/__init__.py": "a757a6ea3e0c7793a7691bdf349fd3b8a7e5011d49ba01f139f01360c91cbfe4",
+    "src/evtalbert/analytics.py": "77a4fb4f7574a29c0c5f081de2583e4d475eef1773454a795a6220d76c4ddd68",
+    "src/evtalbert/cli.py": "994b689af7a687bfdd9002acf8509825ff3e1adc5ae019db180c30e9f8c04395",
+    "src/evtalbert/models.py": "e069bf580194caa9622bd7db884ac8b133c2af952418fe6a99b8e1ba7ea1e6d0",
+    "src/evtalbert/storage.py": "f7fca0de3834701e43149659ef1190ff87ae2501316b7bec676e0d31c577eb5d"
+  }
 }

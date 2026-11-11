@@ -1,0 +1,2 @@
+# Preserve the actual CSV export's CRLF bytes for the demonstration replay.
+docs/demo/synthetic.csv -text whitespace=cr-at-eol

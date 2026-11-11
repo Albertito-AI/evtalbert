@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools==84.2.1", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evtalbert"
+version = "0.1.0"
+description = "EVT-Albert: a local session logger and descriptive analytics research prototype."
+authors = [{name="Tan Sin Hon Albert", email="s.h.a.tan@rug.nl"}]
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["performance", "sports-psychology", "volition", "puni", "mental-skills"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Operating System :: OS Independent"
+]
+
+[project.scripts]
+evtalbert = "evtalbert.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["evtalbert"]

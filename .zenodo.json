@@ -1,0 +1,20 @@
+{
+  "title": "EVT-Albert",
+  "description": "An emotional-volitional training logger and analytics research prototype using fictional demonstration records. This deposit preserves a dated source snapshot of the implementation and documentation, with the limitations stated in the repository.",
+  "creators": [
+    {
+      "name": "Tan, Sin Hon Albert",
+      "orcid": "0009-0001-8996-7933"
+    }
+  ],
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "notes": "MIT applies to the original code. The repository README supersedes the obsolete proprietary repository description. Synthetic training examples do not validate a psychological theory. Archival publication does not establish peer review, independent validation or production readiness.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Albertito-AI/evtalbert",
+      "relation": "isSupplementTo"
+    }
+  ]
+}

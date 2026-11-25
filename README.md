@@ -79,3 +79,7 @@ Before relying on the software, inspect the source, reproduce the tests, examine
 ## Licence
 
 MIT License, copyright 2025 Albertito Tan. See [LICENSE](LICENSE).
+
+## Sport governance teaching application
+
+Use synthetic training diary entries to critique who can see an athlete’s self-report. Ask an athlete representative to approve the purpose and retention period. [Exercise and records](https://github.com/Albertito-AI/sport-governance-and-administration/blob/main/cases/10-refugee-team-travel.md) · [Albert Tan’s book and teaching companion](https://alberttansinhon.com/sport-governance/).
